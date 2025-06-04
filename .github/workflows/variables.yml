@@ -1,0 +1,16 @@
+name: Variables
+on:
+  workflow_dispatch:
+
+env: 
+    HORA: '10:00 a.m'
+    DIA: 'Lunes'
+
+jobs:
+  variables:
+    if: ${{ $NOMBRE == 'Andrés' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Variables
+        run: echo "Hola Andrés, hoy es ${{ env.DIA }} y la hora es ${{ env.HORA }}."
+
