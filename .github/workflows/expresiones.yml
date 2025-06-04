@@ -1,0 +1,41 @@
+name: Expresiones
+on:
+  workflow_dispatch:
+    inputs:
+      nombre:
+        description: 'Nombre del usuario'
+        required: true
+        default: 'Andrés'
+      edad:
+        description: 'Edad del usuario'
+        required: true
+      color:
+        description: 'Color favorito del usuario'
+        required: true
+        default: 'Rojo'
+        choices:
+          - Rojo
+          - Azul
+          - Verde
+          - Amarillo
+          - Morado
+  jobs:
+    mayor:
+      if: ${{ inputs.edad >= 18 }}
+      runs-on: ubuntu-latest
+      steps:
+        - name: Saludo
+          run: echo "Hola ${{ inputs.nombre }}, eres mayor de edad."
+    menor:
+      if: ${{ inputs.edad < 18 }}
+      runs-on: ubuntu-latest
+      steps:
+        - name: Saludo
+          run: echo "Hola ${{ inputs.nombre }}, eres menor de edad."
+    color:
+      if: ${{ inputs.color == 'Morado' }}
+      runs-on: ubuntu-latest
+      steps:
+        - name: Saludo
+          run: echo "Hola ${{ inputs.nombre }}, mi color favorito también es el morado."
+      
