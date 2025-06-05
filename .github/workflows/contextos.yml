@@ -12,5 +12,4 @@ jobs:
           echo "Contexto de la rama: ${{ github.ref }}"
           echo "Contexto del repositorio: ${{ github.repository }}"
           echo "Contexto del actor: ${{ github.actor }}"
-          echo "Contexto del evento: ${{ toJson(github.event) }}"
 
